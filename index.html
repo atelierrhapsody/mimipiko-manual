@@ -162,153 +162,142 @@
       <nav class="toc">
         <ol>
           <li><a href="#about">MiMiPiko とは</a></li>
-          <li><a href="#setup">はじめて使うとき（最初の 1 回だけ）</a></li>
-          <li><a href="#daily">ふだんの使い方</a></li>
+          <li><a href="#setup">初回セットアップ（Wi-Fi の書き込み）</a></li>
+          <li><a href="#daily">基本的な使い方</a></li>
           <li><a href="#screen">画面の見方</a></li>
-          <li><a href="#calibration">「基準の記録」でもっと自分に合わせる</a></li>
-          <li><a href="#trouble">こまったときは</a></li>
+          <li><a href="#calibration">基準の記録（リラックス判定の個人調整）</a></li>
+          <li><a href="#trouble">トラブルシューティング</a></li>
         </ol>
       </nav>
 
       <section id="about">
         <h2><span class="num">1</span>MiMiPiko とは</h2>
         <p>
-          MiMiPiko は、頭につけた電極で読み取った「いまのあなたの状態」——
-          <strong>集中している、リラックスしている、ぼんやりしている</strong> など——を、
-          VRChat のアバターに自動で反映するためのパソコン用アプリです。
+          MiMiPiko は、頭につけた電極から読み取った「いまの状態」——
+          <strong>集中・リラックス・ぼんやり</strong> など——を VRChat のアバターに
+          反映するデスクトップアプリです。起動しておけば、センサーへの接続から
+          VRChat への送信まで自動で動きます。設定項目はほとんどありません。
         </p>
         <p>
-          アプリを起動しておくだけで、センサーに自動でつながり、状態を読み取り、
-          VRChat へ届けます。むずかしい設定はありません。
-        </p>
-        <p>
-          センサーは、<strong>おでこにつける電極 1 つ</strong>と、
-          <strong>両耳につける電極</strong>からできています。この 3 つがきちんと
-          肌に触れていることが、正しく読み取るいちばんのポイントです。
+          センサーは<strong>おでこの電極 1 つ</strong>と<strong>両耳の電極</strong>で
+          構成されています。読み取りの質は電極の接触で決まるため、この 3 点が
+          きちんと肌に触れていることが重要です。
         </p>
         <div class="note">
-          <strong>ご注意</strong>：表示される状態は、おでこの電極 1 か所から読み取った
-          目安です。気持ちや感情そのものを正確に測るものではありません。
+          <strong>注意</strong>：表示される状態は前額 1 点の脳波からの推定で、
+          あくまで目安です。感情を正確に測定するものではありません。
         </div>
 
         <h3>必要なもの</h3>
         <ul>
-          <li>MiMiPiko のセンサー本体と電極</li>
-          <li>Windows パソコン（このアプリをインストールしたもの）</li>
-          <li>ご自宅の Wi-Fi</li>
-          <li>USB ケーブル（はじめの 1 回だけ使います）</li>
+          <li>MiMiPiko センサー本体と電極</li>
+          <li>Windows PC（本アプリをインストール済みのもの）</li>
+          <li>Wi-Fi（2.4 GHz 帯）</li>
+          <li>USB ケーブル（初回セットアップ時のみ）</li>
         </ul>
       </section>
 
       <section id="setup">
-        <h2><span class="num">2</span>はじめて使うとき（最初の 1 回だけ）</h2>
+        <h2><span class="num">2</span>初回セットアップ（Wi-Fi の書き込み）</h2>
         <p>
-          はじめに一度だけ、センサー本体にご自宅の Wi-Fi を教えてあげる必要があります。
-          これが終われば、次からは電源を入れるだけで自動でつながります。
+          センサー本体に Wi-Fi の接続情報を書き込みます。必要なのは最初の 1 回だけで、
+          以降は電源を入れれば自動で接続されます。
         </p>
         <ol class="steps">
-          <li>センサー本体を USB ケーブルでパソコンにつなぎます。</li>
-          <li>アプリ右上の「<strong>USB セットアップ</strong>」ボタンを押します。</li>
+          <li>センサー本体を USB ケーブルで PC に接続します。</li>
+          <li>アプリ右上の「<strong>USB セットアップ</strong>」を開きます。デバイスは自動で検出されます。</li>
           <li>
-            画面の案内にしたがって進めます。
-            <ul>
-              <li>センサー本体は自動で見つかります</li>
-              <li>ご自宅の Wi-Fi を一覧から選び、パスワードを入力します</li>
-              <li>つながったことを確認して、完了です</li>
-            </ul>
+            ウィザードに沿って、接続する Wi-Fi を一覧から選び、パスワードを入力します。
+            接続確認まで進めば完了です。
           </li>
-          <li>USB ケーブルを外します。もう使いません。</li>
+          <li>USB ケーブルを外します。以降の通信は Wi-Fi 経由です。</li>
         </ol>
         <figure>
           <img src="images/setup-wizard.png" alt="USB セットアップの画面" />
-          <figcaption>「USB セットアップ」を押すと、この案内が開きます。</figcaption>
+          <figcaption>
+            「USB セットアップ」ダイアログ。デバイスの検出から Wi-Fi の書き込みまで
+            ここで完結します。
+          </figcaption>
         </figure>
         <div class="note">
-          <strong>ヒント</strong>：Wi-Fi を変えたとき（引っ越し・ルーターの買い替えなど）も、
-          同じ手順でやり直せます。
+          <strong>ヒント</strong>：ルーターの変更などで Wi-Fi が変わった場合も、
+          同じ手順で再設定できます。
         </div>
       </section>
 
       <section id="daily">
-        <h2><span class="num">3</span>ふだんの使い方</h2>
+        <h2><span class="num">3</span>基本的な使い方</h2>
         <ol class="steps">
+          <li>センサー本体の電源を入れ、電極を装着します（おでこ 1 点・両耳）。</li>
           <li>
-            センサー本体の電源を入れて、電極をつけます。おでこに 1 つ、両耳に 1 つずつ。
-            3 つの電極がきちんと肌に触れるようにします。
+            アプリを起動します。前回接続したセンサーへ自動で再接続されます
+            （「<strong>つながっています</strong>」表示）。
+          </li>
+          <li>「<strong>装着</strong>」メーターが「よさそう」になるよう、電極の位置を調整します。</li>
+          <li>
+            起動から約 30 秒は「<strong>準備中</strong>」表示です。判定の準備が整うと
+            状態表示に切り替わります。
           </li>
           <li>
-            アプリを起動します。自動でセンサーを探してつながります
-            （「<strong>つながっています</strong>」と表示されたら OK）。
-          </li>
-          <li>
-            右上の「<strong>装着</strong>」メーターを見ながら、電極の位置を整えます。
-            「よさそう」と出れば大丈夫です。
-          </li>
-          <li>
-            そのまま 30 秒ほど待ちます。はじめは「<strong>準備中</strong>」と表示されますが、
-            故障ではありません。読み取りの準備が整うと、状態が表示されはじめます。
-          </li>
-          <li>
-            「<strong>VRChat に送る</strong>」をオンにします。VRChat が起動していれば、
-            送り先は自動で見つかります。アドレスなどの入力は不要です。
+            「<strong>VRChat に送る</strong>」をオンにします。送信先は自動検出されるため、
+            IP やポートの設定は不要です。
           </li>
         </ol>
         <div class="cols">
           <figure>
             <img src="images/main-preparing.png" alt="起動直後の画面（準備中）" />
-            <figcaption>起動してすぐは「準備中」。30 秒ほどで切り替わります。</figcaption>
+            <figcaption>起動直後は「準備中」。約 30 秒で切り替わります。</figcaption>
           </figure>
           <figure>
             <img src="images/main-mood.png" alt="状態が表示されている画面" />
-            <figcaption>準備が整うと、いまの状態が大きく表示されます。</figcaption>
+            <figcaption>準備が整うと、現在の状態が表示されます。</figcaption>
           </figure>
         </div>
         <div class="note">
-          <strong>VRChat 側の設定</strong>：VRChat で外部アプリからの操作（OSC）を
-          受け取れるようにしておいてください。メニューの
-          「Options → OSC → Enabled」をオンにするだけです。また、アバターは
-          MiMiPiko に対応したものをお使いください。
+          <strong>VRChat 側の設定</strong>：OSC を有効にしてください
+          （アクションメニュー → Options → OSC → Enabled）。アバターは
+          MiMiPiko 対応のものが必要です。
         </div>
       </section>
 
       <section id="screen">
         <h2><span class="num">4</span>画面の見方</h2>
 
-        <h3>つながっているか・装着できているか</h3>
+        <h3>接続と装着</h3>
         <figure class="row">
           <img src="images/row-connection.png" alt="接続と装着の行" />
         </figure>
         <p>
-          左側が<strong>センサーとの接続</strong>、右側が<strong>電極の当たりぐあい</strong>です。
+          左がセンサーとの<strong>接続状態</strong>、右が電極の<strong>接触状態</strong>です。
           装着メーターの表示は次のとおりです。
         </p>
         <ul>
-          <li><span class="state-word ok">よさそう</span>：そのままお使いください</li>
-          <li><span class="state-word warn">ずれているかも</span>：電極の位置を少し直してみてください</li>
-          <li><span class="state-word bad">直してください</span>：電極が肌から離れています。おでこと両耳の電極をつけ直してください</li>
-          <li><span class="state-word">確認中</span>：つながる前や、データが届きはじめる前の表示です。少し待っても変わらないときは、接続を確認してください</li>
+          <li><span class="state-word ok">よさそう</span>：問題ありません</li>
+          <li><span class="state-word warn">ずれているかも</span>：電極の位置を調整してください</li>
+          <li><span class="state-word bad">直してください</span>：電極が肌から浮いています。おでこと両耳の電極をつけ直してください</li>
+          <li><span class="state-word">確認中</span>：接続前、またはデータが届き始める前の表示です。長く続く場合は接続を確認してください</li>
         </ul>
         <p>
-          「自動でつなぐ」にチェックが入っていれば、アプリを起動するだけで毎回自動で
-          つながります。「やめる」を押すと接続を切れます（もう一度つなぐには「つなぐ」を押します）。
+          「自動でつなぐ」を有効にしておくと、起動時に自動で接続します。
+          「やめる」で切断すると自動再接続も止まります。再接続は「つなぐ」で行います。
         </p>
 
-        <h3>いまの状態</h3>
+        <h3>状態表示</h3>
         <figure class="row">
           <img src="images/row-status.png" alt="状態の表示" />
         </figure>
-        <p>画面の中央に、いまの状態が大きく表示されます。表示されるのは次の 5 つです。</p>
+        <p>中央に現在の状態が表示されます。表示は次の 5 種類です。</p>
         <div class="table-scroll"><table>
           <tr><th>表示</th><th>意味</th></tr>
-          <tr><td class="sight">集中</td><td>何かに集中して取り組んでいるようす</td></tr>
-          <tr><td class="sight">リラックス</td><td>起きたまま、落ち着いてくつろいでいるようす</td></tr>
-          <tr><td class="sight">ぼんやり</td><td>注意がゆるんで、ぼーっとしているようす</td></tr>
-          <tr><td class="sight">覚醒</td><td>頭や体に力が入って、活動が高まっているようす</td></tr>
+          <tr><td class="sight">集中</td><td>何かに集中して取り組んでいる状態</td></tr>
+          <tr><td class="sight">リラックス</td><td>起きたまま落ち着いている状態</td></tr>
+          <tr><td class="sight">ぼんやり</td><td>注意が緩み、ぼーっとしている状態</td></tr>
+          <tr><td class="sight">覚醒</td><td>頭や体に力が入り、活動水準が高い状態</td></tr>
           <tr><td class="sight">平常</td><td>いつもどおりの状態</td></tr>
         </table></div>
         <p>
-          「—」と表示されて「装着を確認してください」と出ているときは、電極がうまく
-          肌に当たっていません。つけ直すと戻ります。
+          「—」と「装着を確認してください」が出ているときは電極の接触不足です。
+          つけ直すと復帰します。
         </p>
 
         <h3>VRChat に送る</h3>
@@ -316,92 +305,90 @@
           <img src="images/row-vrchat.png" alt="VRChat に送るスイッチ" />
         </figure>
         <p>
-          このスイッチをオンにすると、読み取った状態が VRChat のアバターに届きます。
-          送り先は自動で見つかるので、入力するものはありません。
+          オンにすると、読み取った状態が毎秒 VRChat へ送信されます。
+          送信先は自動検出のため、入力項目はありません。
         </p>
       </section>
 
       <section id="calibration">
-        <h2><span class="num">5</span>「基準の記録」でもっと自分に合わせる</h2>
+        <h2><span class="num">5</span>基準の記録（リラックス判定の個人調整）</h2>
         <p>
-          脳波のようすは人によって少しずつちがいます。「リラックスしているのに、
-          そう表示されないな」と感じたら、<strong>基準の記録</strong>を試してみてください。
-          目を閉じてくつろいだときのあなたの波を 1 分間記録して、リラックスの判定を
-          あなたに合わせます。
+          脳波の出方には個人差があります。リラックスしているのに表示へ反映されないと
+          感じる場合は、<strong>基準の記録</strong>を実行してください。閉眼安静時の
+          1 分間を基準として記録し、リラックス判定をあなたに合わせます。
         </p>
         <ol class="steps">
-          <li>電極をつけてつながった状態で、「<strong>記録する</strong>」を押します。</li>
-          <li>目を閉じて、楽にして 1 分間待ちます。</li>
+          <li>電極を装着し、接続された状態で「<strong>記録する</strong>」を押します。</li>
+          <li>目を閉じて 1 分待ちます。</li>
           <li>
-            終わると<strong>音でお知らせします</strong>。明るい音が鳴れば成功、
-            低いブザーが鳴ったときはうまく記録できなかった合図なので、装着を直して
-            もう一度お試しください。
+            終了は音で通知されます。上昇音 2 回なら成功、低いブザーなら失敗です。
+            失敗した場合は装着を直して再実行してください。
           </li>
         </ol>
         <figure class="row">
           <img src="images/row-calibration.png" alt="基準の記録の実行中" />
-          <figcaption>記録中は残り時間が表示されます。目を閉じたままで大丈夫です。</figcaption>
+          <figcaption>記録中は残り時間が表示されます。</figcaption>
         </figure>
       </section>
 
       <section id="trouble">
-        <h2><span class="num">6</span>こまったときは</h2>
+        <h2><span class="num">6</span>トラブルシューティング</h2>
         <p>
-          ※アプリの画面では、センサーのことを「ヘッドセット」と表示します。
+          ※アプリ上の表記では、センサーを「ヘッドセット」と呼びます。
         </p>
         <div class="table-scroll"><table>
           <tr><th>画面の表示</th><th>意味と対処</th></tr>
           <tr>
             <td class="sight">ヘッドセットを探しています…</td>
             <td>
-              センサーがまだ見つかっていません。本体の電源が入っているか、パソコンと同じ
-              Wi-Fi につながっているかを確認してください。見つかりしだい自動でつながります。
+              センサーが見つかっていません。本体の電源と、PC と同じ Wi-Fi に
+              つながっているかを確認してください。見つかれば自動で接続されます。
             </td>
           </tr>
           <tr>
             <td class="sight">接続していません</td>
             <td>
-              「やめる」を押したあとの状態です。「つなぐ」を押すとつながります。
+              「やめる」で切断した状態です。「つなぐ」で再接続します。
             </td>
           </tr>
           <tr>
             <td class="sight">ヘッドセットが複数見つかりました</td>
             <td>
-              同じ Wi-Fi に 2 台以上の MiMiPiko があります。まちがえて他の人のものに
-              つながないよう、一覧からご自分のものを選んでください。
+              同じネットワークに複数台あります。誤接続を防ぐため自動では選ばないので、
+              一覧から自分の機体を選んでください。
             </td>
           </tr>
           <tr>
             <td class="sight">「準備中」のまま変わらない</td>
             <td>
-              起動から 30 秒ほどは準備中のままで正常です。それより長く続くときは、
-              装着メーターが「よさそう」になっているか確認してください。
+              起動後 30 秒程度は正常です。それ以上続く場合は、装着メーターが
+              「よさそう」になっているか確認してください。
             </td>
           </tr>
           <tr>
             <td class="sight">状態が「—」になる</td>
             <td>
-              電極が肌から離れています。おでこと両耳の電極をつけ直してください。
+              電極の接触不足です。おでこと両耳の電極をつけ直してください。
             </td>
           </tr>
           <tr>
             <td class="sight">送れていません（VRChat）</td>
             <td>
-              VRChat が起動しているか、VRChat のメニューで「Options → OSC → Enabled」が
-              オンになっているかを確認してください。
+              VRChat が起動しているか、OSC が有効か（Options → OSC → Enabled）を
+              確認してください。
             </td>
           </tr>
           <tr>
             <td class="sight">記録できませんでした（基準の記録）</td>
             <td>
-              記録の途中でセンサーの当たりが弱くなったか、接続が切れました。
-              装着を直し、つながっている状態でもう一度お試しください。
+              記録中に電極の接触不足、または切断が発生しました。装着と接続を確認して
+              再実行してください。
             </td>
           </tr>
         </table></div>
         <div class="note">
-          <strong>それでも直らないときは</strong>：センサー本体の電源を入れ直し、
-          アプリを起動し直してみてください。多くの場合はこれで解決します。
+          <strong>解決しない場合</strong>：センサー本体の電源を入れ直し、
+          アプリを再起動してください。
         </div>
       </section>
 
