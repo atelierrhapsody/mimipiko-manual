@@ -1,11 +1,415 @@
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MiMiPiko</title>
+    <title>MiMiPiko 取扱説明書</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand: #e58ea4;
+        --brand-soft: #fbeef2;
+        --ink: #3a3340;
+        --ink-muted: #7d7386;
+        --bg: #fdfbfc;
+        --surface: #ffffff;
+        --line: #eadfe4;
+        --ok: #5cb85c;
+        --warn: #d9a441;
+        --bad: #d9534f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+        line-height: 1.9;
+        font-size: 16px;
+      }
+      h1, h2, h3 {
+        font-family: "Zen Maru Gothic", "Hiragino Sans", sans-serif;
+        line-height: 1.4;
+      }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+      header.hero {
+        text-align: center;
+        padding: 56px 20px 40px;
+      }
+      header.hero h1 {
+        color: var(--brand);
+        font-size: 2.2rem;
+        margin: 0;
+      }
+      header.hero p {
+        color: var(--ink-muted);
+        margin: 8px 0 0;
+      }
+      nav.toc {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px 26px;
+        margin-bottom: 40px;
+      }
+      nav.toc ol { margin: 0; padding-left: 1.4em; }
+      nav.toc a { color: var(--ink); text-decoration: none; }
+      nav.toc a:hover { color: var(--brand); }
+      section { margin-bottom: 56px; }
+      h2 {
+        font-size: 1.45rem;
+        border-bottom: 3px solid var(--brand-soft);
+        padding-bottom: 6px;
+        margin: 0 0 20px;
+      }
+      h2 .num {
+        display: inline-block;
+        background: var(--brand);
+        color: #fff;
+        border-radius: 999px;
+        width: 1.7em;
+        height: 1.7em;
+        line-height: 1.7em;
+        text-align: center;
+        font-size: 0.85em;
+        margin-right: 10px;
+      }
+      h3 { font-size: 1.1rem; margin: 28px 0 10px; }
+      .note {
+        background: var(--brand-soft);
+        border-radius: 12px;
+        padding: 14px 20px;
+        margin: 16px 0;
+        font-size: 0.95em;
+      }
+      .note strong { color: var(--brand); }
+      figure {
+        margin: 20px auto;
+        text-align: center;
+      }
+      figure img {
+        max-width: min(340px, 100%);
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 6px 24px rgba(58, 51, 64, 0.10);
+      }
+      figure.row img { max-width: min(420px, 100%); }
+      figure figcaption {
+        color: var(--ink-muted);
+        font-size: 0.88em;
+        margin-top: 8px;
+      }
+      .cols {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+      .cols figure { flex: 1 1 260px; margin: 8px 0; }
+      ol.steps { padding-left: 1.5em; }
+      ol.steps > li { margin: 10px 0; }
+      ol.steps > li::marker { color: var(--brand); font-weight: 700; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        font-size: 0.93em;
+      }
+      .table-scroll { overflow-x: auto; border-radius: 12px; }
+      th, td {
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th { background: var(--brand-soft); font-weight: 700; white-space: nowrap; }
+      tr:last-child td { border-bottom: none; }
+      td.sight { font-weight: 700; }
+      .state-word { font-weight: 700; }
+      .ok { color: var(--ok); }
+      .warn { color: var(--warn); }
+      .bad { color: var(--bad); }
+      footer {
+        color: var(--ink-muted);
+        font-size: 0.85em;
+        text-align: center;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+      }
+      @media (max-width: 480px) {
+        body { font-size: 15px; }
+      }
+    </style>
   </head>
   <body>
-    <h1>MiMiPiko</h1>
-    <p>TBD</p>
+    <header class="hero">
+      <h1>MiMiPiko 取扱説明書</h1>
+      <p>あなたの「いまの状態」を、VRChat のアバターへ。</p>
+    </header>
+
+    <div class="wrap">
+      <nav class="toc">
+        <ol>
+          <li><a href="#about">MiMiPiko とは</a></li>
+          <li><a href="#setup">初回セットアップ（Wi-Fi の書き込み）</a></li>
+          <li><a href="#daily">基本的な使い方</a></li>
+          <li><a href="#screen">画面の見方</a></li>
+          <li><a href="#calibration">基準の記録（リラックス判定の個人調整）</a></li>
+          <li><a href="#trouble">トラブルシューティング</a></li>
+        </ol>
+      </nav>
+
+      <section id="about">
+        <h2><span class="num">1</span>MiMiPiko とは</h2>
+        <p>
+          MiMiPiko は、頭につけた電極から読み取った「いまの状態」——
+          <strong>集中・リラックス・ぼんやり</strong> など——を VRChat のアバターに
+          反映するデスクトップアプリです。起動しておけば、センサーへの接続から
+          VRChat への送信まで自動で動きます。設定項目はほとんどありません。
+        </p>
+        <p>
+          センサーは<strong>おでこの電極 1 つ</strong>と<strong>両耳の電極</strong>で
+          構成されています。読み取りの質は電極の接触で決まるため、この 3 点が
+          きちんと肌に触れていることが重要です。
+        </p>
+        <div class="note">
+          <strong>注意</strong>：表示される状態は前額 1 点の脳波からの推定で、
+          あくまで目安です。感情を正確に測定するものではありません。
+        </div>
+
+        <h3>必要なもの</h3>
+        <ul>
+          <li>MiMiPiko センサー本体と電極</li>
+          <li>Windows PC（本アプリをインストール済みのもの）</li>
+          <li>Wi-Fi（2.4 GHz 帯）</li>
+          <li>USB ケーブル（初回セットアップ時のみ）</li>
+        </ul>
+      </section>
+
+      <section id="setup">
+        <h2><span class="num">2</span>初回セットアップ（Wi-Fi の書き込み）</h2>
+        <p>
+          センサー本体に Wi-Fi の接続情報を書き込みます。必要なのは最初の 1 回だけで、
+          以降は電源を入れれば自動で接続されます。
+        </p>
+        <ol class="steps">
+          <li>センサー本体を USB ケーブルで PC に接続します。</li>
+          <li>アプリ右上の「<strong>USB セットアップ</strong>」を開きます。デバイスは自動で検出されます。</li>
+          <li>
+            ウィザードに沿って、接続する Wi-Fi を一覧から選び、パスワードを入力します。
+            接続確認まで進めば完了です。
+          </li>
+          <li>USB ケーブルを外します。以降の通信は Wi-Fi 経由です。</li>
+        </ol>
+        <figure>
+          <img src="images/setup-wizard.png" alt="USB セットアップの画面" />
+          <figcaption>
+            「USB セットアップ」ダイアログ。デバイスの検出から Wi-Fi の書き込みまで
+            ここで完結します。
+          </figcaption>
+        </figure>
+        <div class="note">
+          <strong>ヒント</strong>：ルーターの変更などで Wi-Fi が変わった場合も、
+          同じ手順で再設定できます。
+        </div>
+      </section>
+
+      <section id="daily">
+        <h2><span class="num">3</span>基本的な使い方</h2>
+        <ol class="steps">
+          <li>センサー本体の電源を入れ、電極を装着します（おでこ 1 点・両耳）。</li>
+          <li>
+            アプリを起動します。前回接続したセンサーへ自動で再接続されます
+            （「<strong>つながっています</strong>」表示）。
+          </li>
+          <li>「<strong>装着</strong>」メーターが「よさそう」になるよう、電極の位置を調整します。</li>
+          <li>
+            起動から約 30 秒は「<strong>準備中</strong>」表示です。判定の準備が整うと
+            状態表示に切り替わります。
+          </li>
+          <li>
+            「<strong>VRChat に送る</strong>」をオンにします。送信先は自動検出されるため、
+            IP やポートの設定は不要です。
+          </li>
+        </ol>
+        <div class="cols">
+          <figure>
+            <img src="images/main-preparing.png" alt="起動直後の画面（準備中）" />
+            <figcaption>起動直後は「準備中」。約 30 秒で切り替わります。</figcaption>
+          </figure>
+          <figure>
+            <img src="images/main-mood.png" alt="状態が表示されている画面" />
+            <figcaption>準備が整うと、現在の状態が表示されます。</figcaption>
+          </figure>
+        </div>
+        <div class="note">
+          <strong>VRChat 側の設定</strong>：OSC を有効にしてください
+          （アクションメニュー → Options → OSC → Enabled）。アバターは
+          MiMiPiko 対応のものが必要です。
+        </div>
+      </section>
+
+      <section id="screen">
+        <h2><span class="num">4</span>画面の見方</h2>
+
+        <h3>接続と装着</h3>
+        <figure class="row">
+          <img src="images/row-connection.png" alt="接続と装着の行" />
+        </figure>
+        <p>
+          左がセンサーとの<strong>接続状態</strong>、右が電極の<strong>接触状態</strong>です。
+          装着メーターの表示は次のとおりです。
+        </p>
+        <ul>
+          <li><span class="state-word ok">よさそう</span>：問題ありません</li>
+          <li><span class="state-word warn">ずれているかも</span>：電極の位置を調整してください</li>
+          <li><span class="state-word bad">直してください</span>：電極が肌から浮いています。おでこと両耳の電極をつけ直してください</li>
+          <li><span class="state-word">確認中</span>：接続前、またはデータが届き始める前の表示です。長く続く場合は接続を確認してください</li>
+        </ul>
+        <p>
+          「自動でつなぐ」を有効にしておくと、起動時に自動で接続します。
+          「やめる」で切断すると自動再接続も止まります。再接続は「つなぐ」で行います。
+        </p>
+
+        <h3>状態表示</h3>
+        <figure class="row">
+          <img src="images/row-status.png" alt="状態の表示" />
+        </figure>
+        <p>中央に現在の状態が表示されます。表示は次の 5 種類です。</p>
+        <div class="table-scroll"><table>
+          <tr><th>表示</th><th>意味</th></tr>
+          <tr><td class="sight">集中</td><td>何かに集中して取り組んでいる状態</td></tr>
+          <tr><td class="sight">リラックス</td><td>起きたまま落ち着いている状態</td></tr>
+          <tr><td class="sight">ぼんやり</td><td>注意が緩み、ぼーっとしている状態</td></tr>
+          <tr><td class="sight">覚醒</td><td>頭や体に力が入り、活動水準が高い状態</td></tr>
+          <tr><td class="sight">平常</td><td>いつもどおりの状態</td></tr>
+        </table></div>
+        <p>
+          「—」と「装着を確認してください」が出ているときは電極の接触不足です。
+          つけ直すと復帰します。
+        </p>
+
+        <h3>この 3 分の動き</h3>
+        <figure class="row">
+          <img src="images/row-trend.png" alt="直近 3 分のグラフ" />
+        </figure>
+        <p>
+          直近 3 分間の各状態のスコア（0〜1）を折れ線で表示します。凡例の数値が
+          現在のスコアで、いちばん高い状態が上の状態表示に出ます（「平常」は
+          固定値のため、基準線として灰色で引かれています）。下の色帯は、そのとき
+          確定していた状態の履歴です。
+        </p>
+        <p>
+          線が上下していれば読み取りは正常に動いています。線が途切れている区間は、
+          電極の接触不足などで読み取れていなかった時間です。
+        </p>
+
+        <h3>VRChat に送る</h3>
+        <figure class="row">
+          <img src="images/row-vrchat.png" alt="VRChat に送るスイッチ" />
+        </figure>
+        <p>
+          オンにすると、読み取った状態が毎秒 VRChat へ送信されます。
+          送信先は自動検出のため、入力項目はありません。
+        </p>
+      </section>
+
+      <section id="calibration">
+        <h2><span class="num">5</span>基準の記録（リラックス判定の個人調整）</h2>
+        <p>
+          脳波の出方には個人差があります。リラックスしているのに表示へ反映されないと
+          感じる場合は、<strong>基準の記録</strong>を実行してください。閉眼安静時の
+          1 分間を基準として記録し、リラックス判定をあなたに合わせます。
+        </p>
+        <ol class="steps">
+          <li>電極を装着し、接続された状態で「<strong>記録する</strong>」を押します。</li>
+          <li>目を閉じて 1 分待ちます。</li>
+          <li>
+            終了は音で通知されます。上昇音 2 回なら成功、低いブザーなら失敗です。
+            失敗した場合は装着を直して再実行してください。
+          </li>
+        </ol>
+        <figure class="row">
+          <img src="images/row-calibration.png" alt="基準の記録の実行中" />
+          <figcaption>記録中は残り時間が表示されます。</figcaption>
+        </figure>
+      </section>
+
+      <section id="trouble">
+        <h2><span class="num">6</span>トラブルシューティング</h2>
+        <p>
+          ※アプリ上の表記では、センサーを「ヘッドセット」と呼びます。
+        </p>
+        <div class="table-scroll"><table>
+          <tr><th>画面の表示</th><th>意味と対処</th></tr>
+          <tr>
+            <td class="sight">ヘッドセットを探しています…</td>
+            <td>
+              センサーが見つかっていません。本体の電源と、PC と同じ Wi-Fi に
+              つながっているかを確認してください。見つかれば自動で接続されます。
+            </td>
+          </tr>
+          <tr>
+            <td class="sight">接続していません</td>
+            <td>
+              「やめる」で切断した状態です。「つなぐ」で再接続します。
+            </td>
+          </tr>
+          <tr>
+            <td class="sight">ヘッドセットが複数見つかりました</td>
+            <td>
+              同じネットワークに複数台あります。誤接続を防ぐため自動では選ばないので、
+              一覧から自分の機体を選んでください。
+            </td>
+          </tr>
+          <tr>
+            <td class="sight">「準備中」のまま変わらない</td>
+            <td>
+              起動後 30 秒程度は正常です。それ以上続く場合は、装着メーターが
+              「よさそう」になっているか確認してください。
+            </td>
+          </tr>
+          <tr>
+            <td class="sight">状態が「—」になる</td>
+            <td>
+              電極の接触不足です。おでこと両耳の電極をつけ直してください。
+            </td>
+          </tr>
+          <tr>
+            <td class="sight">送れていません（VRChat）</td>
+            <td>
+              VRChat が起動しているか、OSC が有効か（Options → OSC → Enabled）を
+              確認してください。
+            </td>
+          </tr>
+          <tr>
+            <td class="sight">記録できませんでした（基準の記録）</td>
+            <td>
+              記録中に電極の接触不足、または切断が発生しました。装着と接続を確認して
+              再実行してください。
+            </td>
+          </tr>
+        </table></div>
+        <div class="note">
+          <strong>解決しない場合</strong>：センサー本体の電源を入れ直し、
+          アプリを再起動してください。
+        </div>
+      </section>
+
+      <footer>
+        MiMiPiko — atelier rhapsody
+      </footer>
+    </div>
   </body>
 </html>
